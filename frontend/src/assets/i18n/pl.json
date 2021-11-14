@@ -1,0 +1,14 @@
+{
+  "login.login": "Zaloguj się",
+  "login.enterUsername": "Wprowadź nazwę użytkownika",
+  "login.register": "Zarejestruj się",
+  "login.username": "Nazwa użytkownika",
+  "login.password": "Hasło",
+  "login.enterPassword": "Wprowadź hasło",
+  "login.repeatPassword": "Powtórz hasło",
+  "login.forgotPassword": "Zapomniałeś hasła?",
+  "login.email": "Adres e-mail",
+  "login.enterEmail": "Wprowadź adres e-mail",
+  "login.doYouHaveAccount": "Posiadasz już konto?",
+  "form.fieldRequired": "To pole jest wymagane"
+}
