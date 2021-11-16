@@ -8,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  
+  logoPath = "assets/images/logo1.png";
   loginForm: FormGroup;
 
   onLogin(): void {

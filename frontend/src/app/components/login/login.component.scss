@@ -167,6 +167,12 @@ input[type=submit]{
         }  
     }
     
+    .logo {
+        width: 100%;
+        transform: scale(1.5);
+        
+    }
+
     .login {
         background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
         height: 95vh;

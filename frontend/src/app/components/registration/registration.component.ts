@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
+  logoPath = "assets/images/logo1.png";
+
   constructor() { }
 
   ngOnInit(): void {
