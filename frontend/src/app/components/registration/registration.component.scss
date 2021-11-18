@@ -187,3 +187,12 @@ input[type=submit]{
     width: 100%;
     margin-top: 5vh;
 }
+
+.invalid-form {
+    font-size: .8rem;
+    font-weight: 700;
+    color: red;    
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+}
