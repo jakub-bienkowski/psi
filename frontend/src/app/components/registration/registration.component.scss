@@ -105,7 +105,7 @@ input[type=submit]{
     &:visited {
     text-decoration: none;
     font-family: "Montserrat", sans-serif;
-    font-size: 08rem;
+    font-size: .8rem;
     font-weight: 700;
     color: $color-grey-dark;
     display: inline-block;
@@ -122,7 +122,7 @@ input[type=submit]{
 .form {
     background-color: $color-grey-light-1;
     width: 25vw;
-    height: 65vh;
+    height: 78vh;
     margin: auto;
     border-radius: 1rem;
     position: absolute;
@@ -132,8 +132,8 @@ input[type=submit]{
     box-shadow: 1rem 1rem 4rem rgba($color-black, .4);
     
         &__img {
-            height: 6rem;
-            width: 6rem;
+            height: 4rem;
+            width: 4rem;
             margin: 1rem auto;   
         }
     
@@ -146,7 +146,7 @@ input[type=submit]{
         &__label {
             color: $color-grey-dark;
             font-family: 'Montserrat', sans-serif;
-            font-size: .9rem;
+            font-size: .8rem;
             font-weight: 700;
             background-color: $color-grey-light-1;
             display: block;
