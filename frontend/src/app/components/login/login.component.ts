@@ -1,3 +1,4 @@
+import { Constants } from './../../shared/constants';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -8,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  logoPath = "assets/images/logo1.png";
+  logoPath = Constants.LOGIN_PATH;
   loginForm: FormGroup;
 
   onLogin(): void {
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   constructor() {
     this.loginForm = new FormGroup({
-      login: new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
     });
   }
