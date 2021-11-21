@@ -54,7 +54,8 @@ body {
     font-family: 'Shippori Antique B1', sans-serif;
     color: $color-black;
     text-align: center;
-    padding: .1rem;   
+    padding: .1rem;
+    margin: 1.5rem 0;   
     
 }
 
@@ -67,7 +68,7 @@ input[type=submit]{
     padding: 1rem 2rem;
     display: block;
     margin: 0 auto;
-    margin-top: 1.5rem;
+    margin-top: .8rem;
     border: none;
     border-radius: 5rem;
     font-size: .5rem;
@@ -94,7 +95,8 @@ input[type=submit]{
     font-weight: 700;
     color: $color-grey-dark;
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: .7rem;
+    margin-bottom: .5rem;
     }
 
     &:active,
@@ -106,36 +108,41 @@ input[type=submit]{
 
 .form {
     background-color: $color-grey-light-1;
-    width: 25vw;
-    height: 82vh;
+    width: 50vw;
+    height: 71vh;
     margin: auto;
+    padding-right: 2rem;
     border-radius: 1rem;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 1rem 1rem 4rem rgba($color-black, .4);
+    display: table;
     
         &__img {
-            height: 4rem;
-            width: 4rem;
-            margin: 1rem auto;   
+            width: 50%;
+            margin: 0 auto;
+            display: table-cell;
+            vertical-align: middle;  
         }
     
-        &__box {        
+        &__box {  
+            width: 50%;      
             padding: .5rem;
-            margin: 0 auto;
             text-align: center;
+            display: table-cell;
+            vertical-align: middle;
         }
     
         &__label {
             color: $color-grey-dark;
             font-family: 'Montserrat', sans-serif;
-            font-size: .8rem;
+            font-size: 1rem;
             font-weight: 700;
             background-color: $color-grey-light-1;
             display: block;
-            margin: 0 auto;
+            //margin: 0 auto;
             margin-top: .3rem;
             padding: .1rem;
             text-align: left;
@@ -148,7 +155,7 @@ input[type=submit]{
             font-weight: 700;
             color: $color-black;
             display: inline-block;
-            width: 75%;
+            width: 100%;
             padding: .1rem;
             border: none;
             border-bottom: 2px solid $color-grey-light-2;
@@ -176,7 +183,7 @@ input[type=submit]{
     
 .logo {
     width: 100%;
-    transform: scale(1.5);    
+    transform: scale(1);    
 }
 
 .registration {

@@ -3,10 +3,11 @@
         <div class="form__img">
             <img class="logo" [src]="logoPath" alt="logo">
         </div>
-        <h2 class="heading-secondary">
-            {{ 'login.register' | translate }}
-        </h2>
+        
         <form class="form__box" [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+            <h2 class="heading-secondary">
+                {{ 'login.register' | translate }}
+            </h2>
             <div class="form__field">
                <label for="" class="form__label">{{ 'login.name' | translate }}</label>
                 <input type="text" formControlName="name" class="form__input">
