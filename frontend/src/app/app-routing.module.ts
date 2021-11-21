@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home/home.component';
+import { LoggedOutComponent } from './components/logged-out/logged-out.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { AuthGuard } from './services/authguard/auth.guard';
 
 const routes: Routes = [
+  
+
   {
     path: 'login',
     component: LoginComponent,
@@ -20,6 +23,15 @@ const routes: Routes = [
       title: 'Zarejestruj się'
     }
   },
+
+  {
+    path: 'logged-out',
+    component: LoggedOutComponent,
+    data: {
+      title: ''
+    }
+  },
+
   {
     path: '',
     component: HomeComponent,

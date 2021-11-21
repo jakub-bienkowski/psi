@@ -11,6 +11,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { HomeComponent } from './components/home/home/home.component';
+import { LoggedOutComponent } from './components/logged-out/logged-out.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -22,6 +23,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     RegistrationComponent,
     HomeComponent,
+    LoggedOutComponent,
   ],
   imports: [
     BrowserModule,
