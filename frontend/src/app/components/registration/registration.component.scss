@@ -142,7 +142,7 @@ input[type=submit]{
         &__label {
             color: $color-grey-dark;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
+            font-size: .9rem;
             font-weight: 700;
             background-color: $color-grey-light-1;
             display: block;
@@ -192,9 +192,8 @@ input[type=submit]{
 
 .registration {
     background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
-    height: 95vh;
-    width: 100%;
-    margin-top: 5vh;
+    height: 100vh;
+    width: 100%;    
 }
 
 .invalid-form {

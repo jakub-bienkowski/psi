@@ -183,11 +183,10 @@ input[type=submit]{
         
     }
 
-    .login {
+.login {
         background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
-        height: 95vh;
-        width: 100%;
-        margin-top: 5vh;        
+        height: 100vh;
+        width: 100%;               
     }
 
 .invalid-form {
