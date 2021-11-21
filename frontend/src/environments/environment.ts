@@ -6,8 +6,10 @@ export const environment = {
   production: false,
 
   api: {
-    serverhost: 'localhost:8085',
-    register: '/register/addUser'
+    serverhost: 'http://localhost:8085',
+    register: '/users/addUser',
+    login: '/users/login',
+    logout: '/auth/users/logout'
   }
 
 };

@@ -9,8 +9,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 
-@Entity
-@Table(name="users")
+@Entity(name="users")
 
 @Getter
 @Setter

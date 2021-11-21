@@ -26,15 +26,22 @@ public class UserService implements UserDetailsService {
     UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        UserDTO user = userRepository.findByEmail(email);
+
+        if (user == null) {
+            throw new UsernameNotFoundException("Not found!");
+        }
+
+        return (UserDetails) user;
     }
 
-    public int saveUser(UserDTO userDTO) {
+    public UserDTO saveUser(UserDTO userDTO) {
         User user = modelMapper.map(userDTO, User.class);
         user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
         userRepository.save(user);
-        return user.getId();
+        userDTO.setIdUsr(user.getId());
+        return userDTO;
     }
 
 }

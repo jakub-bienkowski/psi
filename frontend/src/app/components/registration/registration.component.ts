@@ -2,6 +2,7 @@ import { RegistrationService } from './../../services/registration/registration.
 import {  FormControl, FormGroup,  Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Constants } from 'src/app/shared/constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -13,7 +14,7 @@ export class RegistrationComponent implements OnInit {
   logoPath = Constants.LOGIN_PATH;
   registrationForm: FormGroup;
 
-  constructor(private registrationService: RegistrationService) {
+  constructor(private registrationService: RegistrationService, private router: Router) {
     this.registrationForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       surname: new FormControl('', [Validators.required]),
@@ -25,17 +26,12 @@ export class RegistrationComponent implements OnInit {
 
    onRegister(): void {
     if (this.registrationForm.invalid) {
-      console.log('invalid form');
       return;
-
     }
-    console.log('valid');
     this.registrationService.register(this.registrationForm.value)
     .subscribe(
         data => {
-          console.log(data);
-            // this.alertService.success('Registration successful', { keepAfterRouteChange: true });
-            // this.router.navigate(['../login'], { relativeTo: this.route });
+          this.router.navigate(['']);
         },
         error => {
           console.log(error);
