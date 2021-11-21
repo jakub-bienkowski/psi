@@ -109,7 +109,7 @@ input[type=submit]{
 .form {
     background-color: $color-grey-light-1;
     width: 25vw;
-    height: 65vh;
+    height: 67vh;
     margin: auto;
     border-radius: 1rem;
     position: absolute;
@@ -121,7 +121,7 @@ input[type=submit]{
         &__img {
             height: 6rem;
             width: 6rem;
-            margin: 2rem auto;        
+            margin: 2.5rem auto;        
         }
     
         &__box {        
@@ -179,7 +179,7 @@ input[type=submit]{
     
     .logo {
         width: 100%;
-        transform: scale(2.2);
+        transform: scale(2.5);
         
     }
 
