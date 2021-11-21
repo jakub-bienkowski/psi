@@ -9,16 +9,11 @@
 }
 
 //COLORS
-
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #3eb1c5;
 
-$color-secondary-light: #ffb900;
-$color-secondary-dark: #ff7730;
-
-$color-tertiary-light: #2998ff;
-$color-tertiary-dark: #5643fa;
+$color-invalid: #ff5930;
 
 $color-grey-light-1: #f7f7f7;
 $color-grey-light-2: #eee;
@@ -27,18 +22,8 @@ $color-grey-dark: rgb(85, 85, 85);
 $color-white: #fff;
 $color-black: #000;
 
-
-
 //FONT
 $default-font-size: 1.6rem;
-
-//GRID
-
-$grid-width: 114rem;
-$gutter-vertical: 8rem;
-$gutter-horizontal: 6rem;
-
-
 
 *,
 *::after,
@@ -122,7 +107,7 @@ input[type=submit]{
 .form {
     background-color: $color-grey-light-1;
     width: 25vw;
-    height: 78vh;
+    height: 82vh;
     margin: auto;
     border-radius: 1rem;
     position: absolute;
@@ -151,7 +136,7 @@ input[type=submit]{
             background-color: $color-grey-light-1;
             display: block;
             margin: 0 auto;
-            margin-top: 1rem;
+            margin-top: .3rem;
             padding: .1rem;
             text-align: left;
             width: 75%;
@@ -173,7 +158,20 @@ input[type=submit]{
                 background-color: $color-grey-light-2;
                 outline: none;
             }
-        }       
+        }
+        
+        &__validation {
+            position: relative;
+
+            &--blank {
+                font-size: .8rem;
+                font-weight: 700;
+                font-family: "Montserrat", sans-serif;
+                margin: 0;
+                padding: 0;
+                opacity: 0;
+            }
+        }
     }
     
 .logo {
@@ -189,10 +187,16 @@ input[type=submit]{
 }
 
 .invalid-form {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: .8rem;
     font-weight: 700;
-    color: red;    
+    color: $color-invalid;    
     font-family: "Montserrat", sans-serif;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
+    z-index: 20;
+
 }
