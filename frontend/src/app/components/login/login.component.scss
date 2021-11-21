@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Shippori+Antique+B1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@100&display=swap');
 
 //COLORS
 $color-primary: #55c57a;
@@ -11,6 +11,9 @@ $color-grey-light-1: #f7f7f7;
 $color-grey-light-2: #eee;
 
 $color-grey-dark: rgb(85, 85, 85);
+$color-grey-dark-2: #333;
+$color-grey-dark-3: #222;
+
 $color-white: #fff;
 $color-black: #000;
 
@@ -51,8 +54,8 @@ body {
 .heading-secondary {
     font-size: 1rem;
     font-weight: 700;
-    font-family: 'Shippori Antique B1', sans-serif;
-    color: $color-black;
+    font-family: 'Lato', sans-serif;
+    color: $color-grey-dark-3;
     text-align: center;
     padding: .1rem;    
 }
