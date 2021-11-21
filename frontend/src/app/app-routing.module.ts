@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home/home.component';
 import { LoggedOutComponent } from './components/logged-out/logged-out.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AuthGuard } from './services/authguard/auth.guard';
 
 const routes: Routes = [
@@ -27,6 +28,14 @@ const routes: Routes = [
   {
     path: 'logged-out',
     component: LoggedOutComponent,
+    data: {
+      title: ''
+    }
+  },
+
+  {
+    path: 'welcome',
+    component: WelcomeComponent,
     data: {
       title: ''
     }
