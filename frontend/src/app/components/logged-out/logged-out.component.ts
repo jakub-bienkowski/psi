@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Constants } from 'src/app/shared/constants';
 
 @Component({
@@ -9,8 +10,11 @@ import { Constants } from 'src/app/shared/constants';
 export class LoggedOutComponent implements OnInit {
 
   logoPath = Constants.LOGIN_PATH;
+  loggedOut = true;
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit(): void {
   }

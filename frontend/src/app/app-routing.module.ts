@@ -8,8 +8,15 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AuthGuard } from './services/authguard/auth.guard';
 
 const routes: Routes = [
-  
 
+
+  {
+    path: '',
+    component: WelcomeComponent,
+    data: {
+      title: ''
+    }
+  },
   {
     path: 'login',
     component: LoginComponent,
@@ -26,7 +33,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'logged-out',
+    path: 'success',
     component: LoggedOutComponent,
     data: {
       title: ''
@@ -42,7 +49,7 @@ const routes: Routes = [
   },
 
   {
-    path: '',
+    path: 'home',
     component: HomeComponent,
     canActivate: [AuthGuard]
   },

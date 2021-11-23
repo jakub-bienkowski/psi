@@ -4,10 +4,10 @@
           <img class="logo" [src]="logoPath" alt="logo">
         </div>
         <div class="logged__box">
-            <p class="logged__text">{{ 'loggedOut.accountCreated' | translate }}</p>
             <p class="logged__text logged__text--1">{{ 'loggedOut.loggedOut' | translate }}</p>
+            <p *ngIf="!loggedOut" class="logged__text">{{ 'loggedOut.accountCreated' | translate }}</p>
         </div>
             <a class="btn">{{ 'login.login' | translate}}</a>
     </div>
   </section>
-  
+
