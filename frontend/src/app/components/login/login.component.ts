@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
 
   onLogin(): void {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.controls.email.value);
       this.authService.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value)
         .pipe(
           catchError(err => {
@@ -29,7 +28,7 @@ export class LoginComponent implements OnInit {
           }),
         )
         .subscribe((user: User) => {
-          this.router.navigate(['']);
+          this.router.navigate(['/home']);
         });
       }
   }

@@ -20,20 +20,18 @@ export class AuthService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  isLoggedIn() {
-    const token = localStorage.getItem('token');
-    if (token === null) {
-      return false;
-    }
-    const payload = atob(token.split('.')[1]);
-    const parsedPayload = JSON.parse(payload);
-    return parsedPayload.exp > Date.now() / 1000;
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
   }
 
-  login(username: string, password: string) {
+  isLoggedIn() {
+    return this.currentUserValue? true : false;
+  }
+
+  login(email: string, password: string) {
     return this.http
       .post<any>(environment.api.serverhost + environment.api.login, {
-        username,
+        email,
         password,
       })
       .pipe(
