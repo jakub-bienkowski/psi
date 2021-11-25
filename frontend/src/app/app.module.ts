@@ -4,16 +4,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/public/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { RegistrationComponent } from './components/registration/registration.component';
+import { RegistrationComponent } from './components/public/registration/registration.component';
 import { HomeComponent } from './components/home/home/home.component';
-import { LoggedOutComponent } from './components/logged-out/logged-out.component';
-import { WelcomeComponent } from './components/welcome/welcome.component';
-import { AccountCreatedComponent } from './components/account-created/account-created/account-created.component';
+import { LoggedOutComponent } from './components/public/logged-out/logged-out.component';
+import { WelcomeComponent } from './components/public/welcome/welcome.component';
+import { AccountCreatedComponent } from './components/public/account-created/account-created.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);

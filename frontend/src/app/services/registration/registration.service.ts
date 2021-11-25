@@ -23,9 +23,9 @@ export class RegistrationService {
   register(user: User): Observable<User> {
     return this.http
       .post<any>(environment.api.serverhost + environment.api.register, JSON.stringify(user), this.httpOptions)
-      .pipe(
-        catchError(this.handleError)
-      );
+      // .pipe(
+      //   catchError(this.handleError)
+      // );
   }
 
   handleError(error: HttpErrorResponse) {

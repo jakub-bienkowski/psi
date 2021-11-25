@@ -1,11 +1,11 @@
-import { AccountCreatedComponent } from './components/account-created/account-created/account-created.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home/home.component';
-import { LoggedOutComponent } from './components/logged-out/logged-out.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegistrationComponent } from './components/registration/registration.component';
-import { WelcomeComponent } from './components/welcome/welcome.component';
+import { AccountCreatedComponent } from './components/public/account-created/account-created.component';
+import { LoggedOutComponent } from './components/public/logged-out/logged-out.component';
+import { LoginComponent } from './components/public/login/login.component';
+import { RegistrationComponent } from './components/public/registration/registration.component';
+import { WelcomeComponent } from './components/public/welcome/welcome.component';
 import { AuthGuard } from './services/authguard/auth.guard';
 
 const routes: Routes = [
@@ -36,7 +36,7 @@ const routes: Routes = [
     path: 'success',
     component: AccountCreatedComponent,
     data: {
-      title: ''
+      title: 'Zarejestruj się'
     }
   },
   {

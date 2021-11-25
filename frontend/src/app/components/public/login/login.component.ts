@@ -1,12 +1,10 @@
-import { AuthService } from './../../services/authguard/auth.service';
-import { Constants } from './../../shared/constants';
+import { Constants } from 'src/app/shared/constants';
+import { AuthService } from '../../../services/authguard/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { User } from 'src/app/shared/models/user';
-import { Observable, throwError } from 'rxjs';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -18,19 +16,25 @@ export class LoginComponent implements OnInit {
   errorMsg = '';
   logoPath = Constants.LOGIN_PATH;
   loginForm: FormGroup;
+  badCredentialsError = false;
 
   onLogin(): void {
-    if (this.loginForm.valid) {
-      this.authService.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value)
-        .pipe(
-          catchError(err => {
-              return throwError(err);
-          }),
-        )
-        .subscribe((user: User) => {
-          this.router.navigate(['/home']);
-        });
-      }
+    if (!this.loginForm.valid) {
+      return;
+    }
+    this.authService.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value)
+      .pipe(
+        catchError(err => {
+          if (err.status === 400) {
+            this.badCredentialsError = true;
+          }
+          return throwError(err);
+        }),
+      )
+      .subscribe((User) => {
+        sessionStorage.setItem(Constants.CURRENT_USER, JSON.stringify(User));
+        this.router.navigate(['/home']);
+      });
   }
 
   get loginFormControl() {

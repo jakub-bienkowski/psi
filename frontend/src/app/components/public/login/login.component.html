@@ -28,6 +28,9 @@
               <div class="invalid-form" *ngIf="loginFormControl.password.touched && loginFormControl.password.errors?.required">
                 {{ 'form.fieldRequired' | translate }}
               </div>
+              <div class="invalid-credentials" *ngIf="badCredentialsError">
+                {{ 'form.invalidData' | translate }}
+              </div>
               </div>
           </div>
           <input type="submit">

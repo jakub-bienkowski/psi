@@ -48,7 +48,7 @@ body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    color: $color-grey-dark;    
+    color: $color-grey-dark;
 }
 
 .heading-secondary {
@@ -58,8 +58,8 @@ body {
     color: $color-grey-dark-3;
     text-align: center;
     padding: .1rem;
-    margin: 1.5rem 0;   
-    
+    margin: 1.5rem 0;
+
 }
 
 input[type=submit]{
@@ -76,7 +76,7 @@ input[type=submit]{
     border-radius: 5rem;
     font-size: .5rem;
     background-color: $color-primary;
-    transition: all .5s;    
+    transition: all .5s;
 
     &:hover {
         box-shadow: 0 .5rem 2rem rgba($color-black,0.2);
@@ -123,22 +123,22 @@ input[type=submit]{
     transform: translate(-50%, -50%);
     box-shadow: 1rem 1rem 4rem rgba($color-black, .4);
     display: table;
-    
+
         &__img {
             width: 50%;
             margin: 0 auto;
             display: table-cell;
-            vertical-align: middle;  
+            vertical-align: middle;
         }
-    
-        &__box {  
-            width: 50%;      
+
+        &__box {
+            width: 50%;
             padding: .5rem;
             text-align: center;
             display: table-cell;
             vertical-align: middle;
         }
-    
+
         &__label {
             color: $color-grey-dark;
             font-family: 'Montserrat', sans-serif;
@@ -152,7 +152,7 @@ input[type=submit]{
             text-align: left;
             width: 75%;
         }
-    
+
         &__input {
             background-color: $color-grey-light-1;
             font-family: "Montserrat", sans-serif;
@@ -163,14 +163,14 @@ input[type=submit]{
             padding: .1rem;
             border: none;
             border-bottom: 2px solid $color-grey-light-2;
-    
+
             &:focus {
                 border-bottom: 2px solid $color-grey-light-2;
                 background-color: $color-grey-light-2;
                 outline: none;
             }
         }
-        
+
         &__validation {
             position: relative;
 
@@ -184,16 +184,16 @@ input[type=submit]{
             }
         }
     }
-    
+
 .logo {
     width: 100%;
-    transform: scale(1);    
+    transform: scale(1);
 }
 
 .registration {
     background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
     height: 100vh;
-    width: 100%;    
+    width: 100%;
 }
 
 .invalid-form {
@@ -203,10 +203,14 @@ input[type=submit]{
     transform: translateX(-50%);
     font-size: .8rem;
     font-weight: 700;
-    color: $color-invalid;    
+    color: $color-invalid;
     font-family: "Montserrat", sans-serif;
     margin: 0 auto;
     padding: 0;
     z-index: 20;
 
+}
+
+.invalid-credentials{
+  color: $color-invalid;
 }
