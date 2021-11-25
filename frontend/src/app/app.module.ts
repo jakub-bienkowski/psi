@@ -14,6 +14,8 @@ import { HomeComponent } from './components/home/home/home.component';
 import { LoggedOutComponent } from './components/public/logged-out/logged-out.component';
 import { WelcomeComponent } from './components/public/welcome/welcome.component';
 import { AccountCreatedComponent } from './components/public/account-created/account-created.component';
+import { NavbarComponent } from './components/home/navbar/navbar/navbar.component';
+import { SidebarComponent } from './components/home/home/sidebar/sidebar/sidebar.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -28,6 +30,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoggedOutComponent,
     WelcomeComponent,
     AccountCreatedComponent,
+    NavbarComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

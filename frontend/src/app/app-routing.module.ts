@@ -1,3 +1,5 @@
+import { SidebarComponent } from './components/home/home/sidebar/sidebar/sidebar.component';
+import { NavbarComponent } from './components/home/navbar/navbar/navbar.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home/home.component';
@@ -58,7 +60,19 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      {
+          path: '',
+          outlet: 'navbar',
+          component: NavbarComponent
+      },
+      {
+        path: '',
+        outlet: 'sidebar',
+        component: SidebarComponent
+      }
+    ]
   },
   {
     path: '**',
