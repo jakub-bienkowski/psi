@@ -31,7 +31,7 @@ export class RegistrationComponent implements OnInit {
     this.registrationService.register(this.registrationForm.value)
     .subscribe(
         data => {
-          this.router.navigate(['/success?type=account']);
+          this.router.navigate(['/success']);
         },
         error => {
           console.log(error);

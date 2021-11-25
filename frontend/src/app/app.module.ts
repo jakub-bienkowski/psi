@@ -13,6 +13,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { HomeComponent } from './components/home/home/home.component';
 import { LoggedOutComponent } from './components/logged-out/logged-out.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { AccountCreatedComponent } from './components/account-created/account-created/account-created.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -26,6 +27,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     LoggedOutComponent,
     WelcomeComponent,
+    AccountCreatedComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,6 @@
   "form.fieldRequired": "To pole jest wymagane",
   "form.invalidEmail": "Nieprawidłowy adres e-mail",
   "form.passwordsDontMatch": "Hasła nie są identyczne",
-  "loggedOut.accountCreated": "Twoje konto zostało utworzone",
-  "loggedOut.loggedOut": "Zostałeś wylogowany"
+  "loggedOut.accountCreated": "Twoje konto zostało utworzone.",
+  "loggedOut.loggedOut": "Zostałeś wylogowany."
 }

@@ -1,3 +1,4 @@
+import { AccountCreatedComponent } from './components/account-created/account-created/account-created.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home/home.component';
@@ -31,9 +32,15 @@ const routes: Routes = [
       title: 'Zarejestruj się'
     }
   },
-
   {
     path: 'success',
+    component: AccountCreatedComponent,
+    data: {
+      title: ''
+    }
+  },
+  {
+    path: 'logout',
     component: LoggedOutComponent,
     data: {
       title: ''

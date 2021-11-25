@@ -10,7 +10,6 @@ import { Constants } from 'src/app/shared/constants';
 export class LoggedOutComponent implements OnInit {
 
   logoPath = Constants.LOGIN_PATH;
-  loggedOut = true;
 
   constructor() {
 

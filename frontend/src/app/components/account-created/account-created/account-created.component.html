@@ -1,0 +1,11 @@
+<section class="logged-out">
+  <div class="logged">
+      <div class="logged__img">
+        <img class="logo" [src]="logoPath" alt="logo">
+      </div>
+      <div class="logged__box">
+          <p class="logged__text">{{ 'loggedOut.accountCreated' | translate }}</p>
+      </div>
+          <a routerLink="login" class="btn">{{ 'login.login' | translate}}</a>
+  </div>
+</section>

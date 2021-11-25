@@ -3,7 +3,7 @@
         <div class="form__img">
             <img class="logo" [src]="logoPath" alt="logo">
         </div>
-        
+
         <form class="form__box" [formGroup]="registrationForm" (ngSubmit)="onRegister()">
             <h2 class="heading-secondary">
                 {{ 'login.register' | translate }}
@@ -26,7 +26,7 @@
                  <div class="invalid-form" *ngIf="registrationFormControl.surname.touched && registrationFormControl.surname.errors?.required">
                     {{ 'form.fieldRequired' | translate }}
                   </div>
-                  </div>                  
+                  </div>
              </div>
              <div class="form__field">
                 <label for="" class="form__label">{{ 'login.email' | translate }}</label>
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <input type="submit">
-            <a routerLink="login" class="btn-text">{{ 'login.doYouHaveAccount' | translate}}</a>
+            <a routerLink="../login" class="btn-text">{{ 'login.doYouHaveAccount' | translate}}</a>
             </form>
     </div>
 </section>
