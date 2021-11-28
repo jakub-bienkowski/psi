@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       )
       .subscribe((User) => {
         sessionStorage.setItem(Constants.CURRENT_USER, JSON.stringify(User));
-        this.router.navigate(['/home']);
+        this.router.navigate(['/main']);
       });
   }
 

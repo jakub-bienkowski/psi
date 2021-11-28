@@ -1,5 +1,5 @@
-import { SidebarComponent } from './components/home/home/sidebar/sidebar/sidebar.component';
-import { NavbarComponent } from './components/home/navbar/navbar/navbar.component';
+import { SidebarComponent } from './components/home/sidebar/sidebar.component';
+import { NavbarComponent } from './components/home/navbar/navbar.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home/home.component';
@@ -9,6 +9,7 @@ import { LoginComponent } from './components/public/login/login.component';
 import { RegistrationComponent } from './components/public/registration/registration.component';
 import { WelcomeComponent } from './components/public/welcome/welcome.component';
 import { AuthGuard } from './services/authguard/auth.guard';
+import { MainComponent } from './components/home/main/main.component';
 
 const routes: Routes = [
 
@@ -58,8 +59,8 @@ const routes: Routes = [
   },
 
   {
-    path: 'home',
-    component: HomeComponent,
+    path: 'main',
+    component: MainComponent,
     canActivate: [AuthGuard],
     children: [
       {
@@ -71,6 +72,11 @@ const routes: Routes = [
         path: '',
         outlet: 'sidebar',
         component: SidebarComponent
+      },
+      {
+        path: 'home',
+        outlet: 'home',
+        component: HomeComponent
       }
     ]
   },
