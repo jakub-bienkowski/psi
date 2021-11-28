@@ -102,7 +102,7 @@ body {
 .header {
     height: 95vh;
     background-image: linear-gradient(to right, rgba($color-primary-light, .8), rgba($color-primary-dark, .8)),
-                        url("../../../assets/images/background1.jpg");
+                        url("../../../../assets/images/background1.jpg");
     background-size: cover;
     background-position: bottom;
     margin: 2.5vh;
@@ -120,7 +120,7 @@ body {
         margin: 0 auto;
         width: 50vh;
         height: 15vh;
-        background-image: url("../../../assets/images/logo.png");
+        background-image: url("../../../../assets/images/logo.png");
         background-position: center;
         background-size: cover;
     }
