@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@100;300;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@100;300&display=swap');
 
 @mixin clearfix {
     &::after {
@@ -74,9 +74,10 @@ body {
         
 }
 
-.btn {
+.btn-big {
     color: $color-primary;
     text-transform: uppercase;
+    text-decoration: none;
     letter-spacing: 2px;
     font-weight: 500;
     font-family: "Montserrat", sans-serif;
