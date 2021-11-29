@@ -62,7 +62,7 @@
                 <div class="invalid-form" *ngIf="registrationFormControl.password.touched && registrationFormControl.confirmPassword.errors?.validatePasswordConfirmation">
                   {{ 'form.passwordsDontMatch' | translate }}
                 </div>
-                <div class="invalid-credentials" *ngIf="accountExistsError">
+                <div class="invalid-form invalid-credentials" *ngIf="accountExistsError">
                   {{ 'form.accountExists' | translate }}
                 </div>
                 </div>
