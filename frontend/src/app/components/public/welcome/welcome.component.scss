@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@100;300;500;700;900&display=swap');
 
 @mixin clearfix {
     &::after {
@@ -53,31 +53,32 @@ body {
 }
 
 .heading-primary {
-    font-size: 3.5rem;
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 2px;
-    color: $color-grey-light-2;
-    text-align: center;
+    margin: 0 auto;
+    width: 70vh;
+    height: 15vh;
+    background-image: url("../../../../assets/images/logo.png");
+    background-position: left;
+    background-size: cover;
+        
 }
 
 .heading-secondary {
     font-size: 1.2rem;
-    font-weight: 900;
+    font-weight: 300;
     font-family: 'Montserrat', sans-serif;
     color: $color-grey-light-2;
     letter-spacing: 1px;
     text-align: center;
     padding: .1rem;
-    margin: 1.5rem 0;   
-    
+    margin: 1.5rem 0;
+        
 }
 
 .btn {
     color: $color-primary;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-weight: 700;
+    font-weight: 500;
     font-family: "Montserrat", sans-serif;
     padding: 1rem 2rem;
     display: inline-block;
@@ -85,7 +86,7 @@ body {
     border: none;
     border-radius: 5rem;
     font-size: .8rem;
-    background-color: $color-white;
+    background-color: $color-grey-light-2;
     transition: all .5s;    
 
     &:hover {
@@ -114,15 +115,5 @@ body {
         left: 50%;
         transform: translate(-50%, -50%);
     }
-
-    &__logo-box {
-        margin: 0 auto;
-        width: 50vh;
-        height: 15vh;
-        background-image: url("../../../../assets/images/logo.png");
-        background-position: center;
-        background-size: cover;
-    }
-
-    
+        
 }
