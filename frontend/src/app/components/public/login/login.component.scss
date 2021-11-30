@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@100&display=swap');
+
+//COLORS
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #3eb1c5;
+
+$color-invalid: #ff5930;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: rgb(85, 85, 85);
+$color-grey-dark-2: #333;
+$color-grey-dark-3: #222;
+
+$color-white: #fff;
+$color-black: #000;
+
+//FONT
+$default-font-size: 1.6rem;
+
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62,5%;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: $color-grey-dark;
+}
+
+.heading-secondary {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    color: $color-grey-dark-3;
+    text-align: center;
+    padding: .1rem;
+}
+
+input[type=submit]{
+    color: $color-white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    padding: 1rem 2rem;
+    display: block;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    border: none;
+    border-radius: 5rem;
+    font-size: .5rem;
+    background-color: $color-primary;
+    transition: all .5s;
+
+    &:hover {
+        box-shadow: 0 .5rem 2rem rgba($color-black,0.2);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        box-shadow: 0 .5rem 1rem rgba($color-black,0.2);
+        transform: translateY(-1px);
+    }
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: .8rem;
+    font-weight: 600;
+    color: $color-grey-dark;
+    display: inline-block;
+    margin-top: 1rem;
+    border-bottom: 2px solid transparent;
+    }
+
+    &:active,
+    &:hover {
+        border-bottom: 2px solid $color-primary-dark;
+    }
+}
+
+.form {
+    background-color: $color-grey-light-1;
+    width: 25vw;
+    height: 67vh;
+    margin: auto;
+    border-radius: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1rem 1rem 4rem rgba($color-black, .4);
+
+        &__img {
+            height: 6rem;
+            width: 6rem;
+            margin: 2.5rem auto;
+        }
+
+        &__box {
+            padding: .5rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        &__label {
+            color: $color-grey-dark;
+            font-family: 'Montserrat', sans-serif;
+            font-size: .9rem;
+            font-weight: 600;
+            background-color: $color-grey-light-1;
+            display: block;
+            margin: 0 auto;
+            margin-top: 1rem;
+            padding: .1rem;
+            text-align: left;
+            width: 75%;
+        }
+
+        &__input {
+            background-color: $color-grey-light-1;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            color: $color-black;
+            display: inline-block;
+            width: 75%;
+            padding: .1rem;
+            border: none;
+            border-bottom: 2px solid $color-grey-light-2;
+
+
+            &:focus {
+                border-bottom: 2px solid $color-grey-light-2;
+                background-color: $color-grey-light-2;
+                outline: none;
+            }
+        }
+
+        &__validation {
+            position: relative;
+
+            &--blank {
+                font-size: .8rem;
+                font-weight: 700;
+                font-family: "Montserrat", sans-serif;
+                margin: 0;
+                padding: 0;
+                opacity: 0;
+            }
+        }
+    }
+
+    .logo {
+        width: 100%;
+        transform: scale(2.5);
+
+    }
+
+.login {
+        background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+        height: 100vh;
+        width: 100%;
+    }
+
+.invalid-form {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: .8rem;
+    font-weight: 700;
+    color: $color-invalid;
+    font-family: "Montserrat", sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    z-index: 20;
+}
+
+.invalid-credentials{
+  color: $color-invalid;
+}
+
+
+

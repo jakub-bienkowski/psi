@@ -1,0 +1,20 @@
+{
+  "login.login": "Zaloguj się",
+  "login.register": "Zarejestruj się",
+  "login.name": "Imię",
+  "login.surname": "Nazwisko",
+  "login.password": "Hasło",
+  "login.enterPassword": "Wprowadź hasło",
+  "login.confirmPassword": "Powtórz hasło",
+  "login.forgotPassword": "Zapomniałeś hasła?",
+  "login.email": "Adres e-mail",
+  "login.enterEmail": "Wprowadź adres e-mail",
+  "login.doYouHaveAccount": "Posiadasz już konto?",
+  "form.fieldRequired": "To pole jest wymagane",
+  "form.invalidEmail": "Nieprawidłowy adres e-mail",
+  "form.accountExists": "Istnieje już konto powiązane z podanym adresem e-mail.",
+  "form.passwordsDontMatch": "Podane hasła nie są identyczne",
+  "form.invalidData": "Podany login i hasło są nieprawidłowe!",
+  "loggedOut.accountCreated": "Twoje konto zostało utworzone",
+  "loggedOut.loggedOut": "Zostałeś wylogowany."
+}

@@ -1,0 +1,71 @@
+<section class="registration">
+    <div class="form">
+        <div class="form__img">
+            <img class="logo" [src]="logoPath" alt="logo">
+        </div>
+
+        <form class="form__box" [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+            <h2 class="heading-secondary">
+                {{ 'login.register' | translate }}
+            </h2>
+            <div class="form__field">
+               <label for="" class="form__label">{{ 'login.name' | translate }}</label>
+                <input type="text" formControlName="name" class="form__input">
+                <div class="form__validation">
+                <p class="form__validation--blank">&nbsp;</p>
+                <div class="invalid-form" *ngIf="registrationFormControl.name.touched && registrationFormControl.name.errors?.required">
+                    {{ 'form.fieldRequired' | translate }}
+                  </div>
+                  </div>
+            </div>
+            <div class="form__field">
+                <label for="" class="form__label">{{ 'login.surname' | translate }}</label>
+                 <input type="text" formControlName="surname" class="form__input">
+                 <div class="form__validation">
+                <p class="form__validation--blank">&nbsp;</p>
+                 <div class="invalid-form" *ngIf="registrationFormControl.surname.touched && registrationFormControl.surname.errors?.required">
+                    {{ 'form.fieldRequired' | translate }}
+                  </div>
+                  </div>
+             </div>
+             <div class="form__field">
+                <label for="" class="form__label">{{ 'login.email' | translate }}</label>
+                 <input type="text" formControlName="email" class="form__input" autoComplete="username">
+                 <div class="form__validation">
+                <p class="form__validation--blank">&nbsp;</p>
+                 <div class="invalid-form" *ngIf="registrationFormControl.email.touched && registrationFormControl.email.errors?.required">
+                  {{ 'form.fieldRequired' | translate }}
+                </div>
+                  <div class="invalid-form" *ngIf="registrationFormControl.email.touched && registrationFormControl.email.errors?.email">
+                    {{ 'form.invalidEmail' | translate }}
+                  </div>
+                  </div>
+             </div>
+            <div class="form__field">
+                <label for="" class="form__label">{{ 'login.enterPassword' | translate}}</label>
+                <input type="password" formControlName="password" autocomplete="new-password" class="form__input">
+                <div class="form__validation">
+                <p class="form__validation--blank">&nbsp;</p>
+                <div class="invalid-form" *ngIf="registrationFormControl.password.touched && registrationFormControl.password.errors?.required">
+                    {{ 'form.fieldRequired' | translate }}
+                </div>
+                </div>
+            </div>
+            <div class="form__field">
+                <label for="" class="form__label">{{ 'login.confirmPassword' | translate}}</label>
+                <input type="password" formControlName="confirmPassword" class="form__input">
+                <div class="form__validation">
+                <p class="form__validation--blank">&nbsp;</p>
+                <div class="invalid-form" *ngIf="registrationFormControl.password.touched && registrationFormControl.confirmPassword.value !== registrationFormControl.password.value">
+                  {{ 'form.passwordsDontMatch' | translate }}
+                </div>
+                <div class="invalid-form invalid-credentials" *ngIf="accountExistsError">
+                  {{ 'form.accountExists' | translate }}
+                </div>
+                </div>
+            </div>
+            <input type="submit">
+            <a routerLink="../login" class="btn-text">{{ 'login.doYouHaveAccount' | translate}}</a>
+            </form>
+    </div>
+</section>
