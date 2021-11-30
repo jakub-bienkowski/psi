@@ -29,7 +29,7 @@ export class RegistrationComponent implements OnInit {
    }
 
    onRegister(): void {
-    if (this.registrationForm.invalid) {
+    if (!this.isValid()) {
       return;
     }
     this.registrationService.register(this.registrationForm.value)
@@ -46,6 +46,15 @@ export class RegistrationComponent implements OnInit {
       });
 
     }
+
+  isValid(): boolean {
+    if (!this.registrationForm.valid || (this.registrationForm.controls.password.value !== this.registrationForm.controls.confirmPassword.value)) {
+      this.registrationForm.markAllAsTouched();
+      return false;
+    } else {
+      return true;
+    }
+  }
 
   get registrationFormControl() {
     return this.registrationForm.controls;

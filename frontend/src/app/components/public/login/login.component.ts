@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
+import { isVariableDeclarationList } from 'typescript';
 
 @Component({
   selector: 'app-login',
@@ -13,13 +14,13 @@ import { throwError } from 'rxjs';
 })
 export class LoginComponent implements OnInit {
 
-  errorMsg = '';
   logoPath = Constants.LOGIN_PATH;
   loginForm: FormGroup;
   badCredentialsError = false;
 
   onLogin(): void {
-    if (!this.loginForm.valid) {
+    if (!this.loginForm.valid){
+      this.loginForm.markAllAsTouched();
       return;
     }
     this.authService.login(this.loginForm.controls.email.value, this.loginForm.controls.password.value)

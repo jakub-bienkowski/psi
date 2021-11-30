@@ -9,7 +9,7 @@
       <form class="form__box" [formGroup]="loginForm" (ngSubmit)="onLogin()">
           <div class="form__field">
              <label for="" class="form__label">{{ 'login.email' | translate }}</label>
-              <input formControlName="email" type="text" class="form__input">
+              <input formControlName="email" type="text" class="form__input" autoComplete="username">
               <div class="form__validation">
                 <p class="form__validation--blank">&nbsp;</p>
                 <div class="invalid-form" *ngIf="loginFormControl.email.touched && loginFormControl.email.errors?.required">
@@ -22,7 +22,7 @@
           </div>
           <div class="form__field">
               <label for="" class="form__label">{{ 'login.password' | translate }}</label>
-              <input formControlName="password" type="password" class="form__input">
+              <input formControlName="password" type="password" class="form__input" autoComplete="current-password">
               <div class="form__validation">
                 <p class="form__validation--blank">&nbsp;</p>
               <div class="invalid-form" *ngIf="loginFormControl.password.touched && loginFormControl.password.errors?.required">

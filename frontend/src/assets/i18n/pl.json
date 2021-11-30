@@ -13,7 +13,7 @@
   "form.fieldRequired": "To pole jest wymagane",
   "form.invalidEmail": "Nieprawidłowy adres e-mail",
   "form.accountExists": "Istnieje już konto powiązane z podanym adresem e-mail.",
-  "form.passwordsDontMatch": "Hasła nie są identyczne",
+  "form.passwordsDontMatch": "Podane hasła nie są identyczne",
   "form.invalidData": "Podany login i hasło są nieprawidłowe!",
   "loggedOut.accountCreated": "Twoje konto zostało utworzone",
   "loggedOut.loggedOut": "Zostałeś wylogowany."

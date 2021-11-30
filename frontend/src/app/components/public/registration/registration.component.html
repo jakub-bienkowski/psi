@@ -30,7 +30,7 @@
              </div>
              <div class="form__field">
                 <label for="" class="form__label">{{ 'login.email' | translate }}</label>
-                 <input type="text" formControlName="email" class="form__input">
+                 <input type="text" formControlName="email" class="form__input" autoComplete="username">
                  <div class="form__validation">
                 <p class="form__validation--blank">&nbsp;</p>
                  <div class="invalid-form" *ngIf="registrationFormControl.email.touched && registrationFormControl.email.errors?.required">
@@ -56,10 +56,7 @@
                 <input type="password" formControlName="confirmPassword" class="form__input">
                 <div class="form__validation">
                 <p class="form__validation--blank">&nbsp;</p>
-                <div class="invalid-form" *ngIf="registrationFormControl.confirmPassword.touched && registrationFormControl.confirmPassword.errors?.required">
-                    {{ 'form.fieldRequired' | translate }}
-                </div>
-                <div class="invalid-form" *ngIf="registrationFormControl.password.touched && registrationFormControl.confirmPassword.errors?.validatePasswordConfirmation">
+                <div class="invalid-form" *ngIf="registrationFormControl.password.touched && registrationFormControl.confirmPassword.value !== registrationFormControl.password.value">
                   {{ 'form.passwordsDontMatch' | translate }}
                 </div>
                 <div class="invalid-form invalid-credentials" *ngIf="accountExistsError">
