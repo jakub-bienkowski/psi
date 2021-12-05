@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   api: {
-    serverhost: 'http://localhost:8085',
+    serverhost: 'http://localhost:8086',
     register: '/users/addUser',
     login: '/users/login',
     logout: '/auth/users/logout'
