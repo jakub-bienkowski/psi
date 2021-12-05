@@ -23,20 +23,6 @@ export class RegistrationService {
   register(user: User): Observable<User> {
     return this.http
       .post<any>(environment.api.serverhost + environment.api.register, JSON.stringify(user), this.httpOptions)
-      // .pipe(
-      //   catchError(this.handleError)
-      // );
   }
 
-  handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error occurred:', error.error.message);
-    } else {
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
-    }
-    return throwError(
-      'Please try again later.');
-  };
 }

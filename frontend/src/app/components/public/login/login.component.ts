@@ -5,7 +5,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
-import { isVariableDeclarationList } from 'typescript';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +16,13 @@ export class LoginComponent implements OnInit {
   logoPath = Constants.LOGIN_PATH;
   loginForm: FormGroup;
   badCredentialsError = false;
+
+  constructor(private authService: AuthService, private router: Router) {
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', Validators.required),
+    });
+  }
 
   onLogin(): void {
     if (!this.loginForm.valid){
@@ -40,13 +46,6 @@ export class LoginComponent implements OnInit {
 
   get loginFormControl() {
     return this.loginForm.controls;
-  }
-
-  constructor(private authService: AuthService, private router: Router) {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required),
-    });
   }
 
   ngOnInit(): void {

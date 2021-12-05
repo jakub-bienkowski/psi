@@ -9,6 +9,7 @@ public class PsiApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PsiApplication.class, args);
+//		new LoginThread().run();
 	}
 
 }

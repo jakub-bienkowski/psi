@@ -33,7 +33,7 @@ public class UserService {
         user.setCreatedAt(LocalDateTime.now());
         user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
         userRepository.save(user);
-        userDTO.setIdUsr(user.getId());
+        userDTO.setIdUsr(user.getIdUsr());
         return userDTO;
     }
 

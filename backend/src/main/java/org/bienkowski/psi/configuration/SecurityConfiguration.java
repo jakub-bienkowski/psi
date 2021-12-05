@@ -10,12 +10,19 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import javax.annotation.PostConstruct;
 
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableGlobalMethodSecurity()
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
    @Autowired
@@ -33,6 +40,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .passwordEncoder(encoder());
     }
 
+//    @Autowired
+//    public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.userDetailsService(customUserDetailService).passwordEncoder(encoder());
+//    }
+
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
@@ -41,11 +53,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
          http
-                .authorizeRequests()
-                .antMatchers("/auth*").hasRole("USER")
-                .antMatchers("/users*").permitAll()
-                .and()
-                .csrf().disable()
-                .cors();
+                 .authorizeRequests()
+                 .antMatchers("/users/auth/**").authenticated()
+                 .antMatchers("/users/**").permitAll()
+//                 .antMatchers("/auth/**").authenticated()
+                 .anyRequest().permitAll()
+                 .and()
+                 .csrf().disable()
+                 .cors();
+//                 .and().httpBasic();
+
+        http.sessionManagement().maximumSessions(1).sessionRegistry(sessionRegistry());
     }
+
+    @Bean
+    public SessionRegistry sessionRegistry() {
+        return new SessionRegistryImpl();
+    }
+
+
+
 }

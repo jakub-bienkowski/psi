@@ -16,5 +16,6 @@
   "form.passwordsDontMatch": "Podane hasła nie są identyczne",
   "form.invalidData": "Podany login i hasło są nieprawidłowe!",
   "loggedOut.accountCreated": "Twoje konto zostało utworzone",
-  "loggedOut.loggedOut": "Zostałeś wylogowany."
+  "loggedOut.loggedOut": "Zostałeś wylogowany.",
+  "add" : "Dodaj"
 }

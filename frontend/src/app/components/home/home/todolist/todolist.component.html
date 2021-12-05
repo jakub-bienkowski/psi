@@ -1,0 +1,21 @@
+<div>
+  <input [(ngModel)]="taskValue">
+  <button (click)="addTask()" class="btn btn-primary">{{ 'add' | translate }}</button>
+</div>
+<ng-container *ngIf="taskList.length; else brakZadanTemplate">
+  <div>
+    Lista zadań:
+    <div>
+      <ul *ngFor="let task of taskList">
+        <li>{{task.value}}
+          <button (click)="removeTask(task.idTsk)" class="btn btn-success btn-sm">Wykonaj</button>
+          <button (click)="removeTask(task.idTsk)" class="btn btn-danger btn-sm">Usuń</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #brakZadanTemplate>
+  <div>Brak zadań</div>
+</ng-template>

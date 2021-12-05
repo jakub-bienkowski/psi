@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-  private currentUserSubject: BehaviorSubject<User> | BehaviorSubject<User>;
+  private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
   constructor(private http: HttpClient, private router: Router) {

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -17,6 +17,7 @@ import { LoggedOutComponent } from './components/public/logged-out/logged-out.co
 import { LoginComponent } from './components/public/login/login.component';
 import { RegistrationComponent } from './components/public/registration/registration.component';
 import { WelcomeComponent } from './components/public/welcome/welcome.component';
+import { TodolistComponent } from './components/home/home/todolist/todolist.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -34,12 +35,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     NavbarComponent,
     SidebarComponent,
     MainComponent,
+    TodolistComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

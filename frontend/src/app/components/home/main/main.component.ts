@@ -12,7 +12,7 @@ export class MainComponent implements OnInit {
 
   loggedUser!: User;
   taskList = ['odkurzyć','odkurzyć','odkurzyć','odkurzyć'];
-  
+
   constructor(private authService: AuthService, private router: Router) {
     authService.currentUser.subscribe(user =>
       this.loggedUser = user);

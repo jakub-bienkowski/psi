@@ -1,6 +1,7 @@
 package org.bienkowski.psi.controllers;
 
 import lombok.extern.slf4j.Slf4j;
+import org.bienkowski.psi.dto.CustomUserDetails;
 import org.bienkowski.psi.dto.UserDTO;
 import org.bienkowski.psi.exception.UserAlreadyExistsException;
 import org.bienkowski.psi.services.AuthService;
@@ -9,13 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.time.LocalDateTime;
 
 @Slf4j
 @RestController
@@ -29,6 +32,23 @@ public class UserController {
     @Autowired
     AuthService authService;
 
+    @GetMapping(value = "/check")
+    public ResponseEntity<Object> checkauth() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null) {
+            String currentPrincipalName = authentication.getName();
+            System.out.println(currentPrincipalName + "AUTH SERVIVE");
+            CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
+            System.out.println(userDetails  + "AUTH SERVIVE");
+
+            UserDetails userDetailsA = (UserDetails) authentication.getPrincipal();
+            System.out.println(userDetailsA + "AUTH SERVIVE");
+        } else {
+            System.out.println("auth null AUTH SERVICE");
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 
     @PostMapping(value = "/login", consumes = MimeTypeUtils.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> login(HttpServletRequest request, @RequestBody UserDTO userDTO, BindingResult bindingResult)  {
@@ -39,6 +59,18 @@ public class UserController {
         }
         try {
             UserDTO loggedUser = authService.login(request, userDTO);
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null) {
+            String currentPrincipalName = authentication.getName();
+            System.out.println(currentPrincipalName + "AUTH SERVIVE");
+            CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
+            System.out.println(userDetails  + "AUTH SERVIVE");
+
+            UserDetails userDetailsA = (UserDetails) authentication.getPrincipal();
+            System.out.println(userDetailsA + "AUTH SERVIVE");
+        } else {
+            System.out.println("auth null AUTH SERVICE");
+        }
             return new ResponseEntity<>(loggedUser, HttpStatus.OK);
         } catch (BadCredentialsException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

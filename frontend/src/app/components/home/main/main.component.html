@@ -1,17 +1,12 @@
 <app-navbar></app-navbar>
+ <button (click)="logOut()">wyloguj się</button>
 <app-sidebar></app-sidebar>
 <div class="container-fluid">
   <div class="row">
     <div class="col-2"></div>
     <div class="col-10">
-      Zalogowany: {{loggedUser.name}}
-      <button (click)="logOut()">Wyloguj się</button>
-
-      <ul *ngFor="let task of taskList">
-        <li>{{task}}
-          <button>usuń</button>
-        </li>
-      </ul>
+      <app-home></app-home>
     </div>
   </div>
 </div>
+

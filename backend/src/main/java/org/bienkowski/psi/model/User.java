@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Entity(name="users")
@@ -19,7 +20,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usr")
-    private int id;
+    private int idUsr;
 
     @Column
     private String name;
@@ -33,6 +34,9 @@ public class User {
     @Column
     @JsonIgnore
     private String password;
+
+    @OneToMany(mappedBy = "user")
+    private List<Task> tasks;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

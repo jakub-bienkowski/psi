@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping("auth/users")
+@RequestMapping("/auth/users")
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 public class UserAuthController {
 
@@ -21,4 +21,5 @@ public class UserAuthController {
     public void logout(HttpServletRequest request) {
         authService.logOut(request);
     }
+
 }

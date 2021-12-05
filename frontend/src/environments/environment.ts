@@ -9,7 +9,8 @@ export const environment = {
     serverhost: 'http://localhost:8085',
     register: '/users/addUser',
     login: '/users/login',
-    logout: '/auth/users/logout'
+    logout: '/auth/users/logout',
+    tasks: '/auth/tasks'
   }
 
 };

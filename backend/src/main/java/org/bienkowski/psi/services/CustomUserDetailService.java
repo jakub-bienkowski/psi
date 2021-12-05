@@ -29,7 +29,7 @@ public class CustomUserDetailService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("No user found");
         }
-        return new CustomUserDetails(user.getId(), user.getEmail(), user.getName(), user.getSurname(), user.getPassword(), getAuthorities("USER"));
+        return new CustomUserDetails(user.getIdUsr(), user.getEmail(), user.getName(), user.getSurname(), user.getPassword(), getAuthorities("ROLE_USER"));
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities(String role) {
