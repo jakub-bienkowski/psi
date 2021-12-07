@@ -1,6 +1,8 @@
 package org.bienkowski.psi.configuration;
 
-import org.bienkowski.psi.services.CustomUserDetailService;
+import org.bienkowski.psi.jwt.JwtAuthEntryPoint;
+import org.bienkowski.psi.jwt.JwtAuthTokenFilter;
+import org.bienkowski.psi.services.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +12,9 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 
 @Configuration
@@ -19,7 +23,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
    @Autowired
-   private CustomUserDetailService customUserDetailService;
+   private CustomUserDetailsService customUserDetailService;
+
+    @Autowired
+    private JwtAuthEntryPoint jwtAuthEntryPoint;
+
+    @Bean
+    public JwtAuthTokenFilter jwtAuthTokenFilter() {
+        return new JwtAuthTokenFilter();
+    }
 
     @Bean
     public BCryptPasswordEncoder encoder() {
@@ -34,6 +46,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
+    @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
@@ -41,11 +54,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
          http
-                .authorizeRequests()
-                .antMatchers("/auth*").hasRole("USER")
-                .antMatchers("/users*").permitAll()
-                .and()
-                .csrf().disable()
-                .cors();
+                 .cors().and().csrf().disable()
+                 .exceptionHandling().authenticationEntryPoint(jwtAuthEntryPoint)
+                 .and()
+                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                 .and()
+                 .authorizeRequests()
+                 .antMatchers("/api/auth/**").permitAll()
+                 .antMatchers("/api/task/**").authenticated()
+                 .anyRequest().authenticated();
+
+        http.addFilterBefore(jwtAuthTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 }

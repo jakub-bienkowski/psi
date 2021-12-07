@@ -6,7 +6,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity(name="users")
@@ -27,12 +31,21 @@ public class User {
     @Column
     private String surname;
 
-    @Column(unique = true)
+    @Column
     private String email;
+
+    @Column(unique = true)
+    private String username;
 
     @Column
     @JsonIgnore
     private String password;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "id_usr"),
+            inverseJoinColumns = @JoinColumn(name = "id_rol"))
+    private Set<Role> roles = new HashSet<>();
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
