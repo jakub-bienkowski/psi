@@ -53,9 +53,10 @@ body {
 
 
 .home {
+  background-color: $color-grey-light-1;
   display: flex;
   flex-direction: row-reverse;
-  justify-content: flex-end;
+  
 }    
 .sidebar { 
 
@@ -65,16 +66,20 @@ body {
   height: 100vh;
   flex-direction: column;
   background-image: linear-gradient(rgba($color-primary-light, .9), rgba($color-primary-dark, .9));
-  color: #fff;
-  margin-left: 2rem;
-  box-shadow: 0 .5rem 3rem rgba($color-black, .5);
+  color: #fff;  
+  box-shadow: .5rem 0 4rem rgba(0,0,0,.1);
 
 }
 
-  &__logo {
-  width: 100%;
-  padding: 1rem;
-  padding-top: 2rem;
+  &__logo-box {
+    background-image: url("../../../../assets/images/logo_small.png");
+    background-position: left;
+    background-repeat: no-repeat;
+  width: 50%;
+  margin: 0 auto;
+  height: 10rem;
+  padding: 2rem;
+  padding-top: 3rem;
   }
 
   &__items {
@@ -97,7 +102,7 @@ body {
     color: $color-grey-light-2;
     display: block;
     padding: 1rem;
-    padding-left: 2rem;
+    padding-left: 3rem;
     transition: all .5s ease-out;    
 } 
 
@@ -114,9 +119,14 @@ body {
   align-items: center;
   flex: 1;
   padding: 1rem;
+  background-color: $color-white;
+  
+  box-shadow: 0 .5rem 4rem rgba(0,0,0,.1);
   
 
   &__logo {
     height: 5rem;
+    
   }
 }
+
