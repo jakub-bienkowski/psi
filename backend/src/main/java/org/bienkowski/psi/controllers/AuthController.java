@@ -1,7 +1,6 @@
 package org.bienkowski.psi.controllers;
 
 import lombok.extern.slf4j.Slf4j;
-import org.bienkowski.psi.dto.CustomUserDetails;
 import org.bienkowski.psi.dto.UserDTO;
 import org.bienkowski.psi.exception.UserAlreadyExistsException;
 import org.bienkowski.psi.services.AuthService;
@@ -11,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.util.MimeTypeUtils;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -47,11 +45,6 @@ public class AuthController {
         } catch (UserAlreadyExistsException e) {
             return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
         }
-    }
-
-    @GetMapping(value="/logout")
-    public ResponseEntity<Object> logout(HttpServletRequest request) {
-        return authService.logOut(request) ?  new ResponseEntity<>(HttpStatus.OK) :  new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
 }

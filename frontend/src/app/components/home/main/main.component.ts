@@ -1,6 +1,6 @@
+import { TokenstorageService } from './../../../services/tokenstorage/tokenstorage.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/authguard/auth.service';
 import { User } from 'src/app/shared/models/user';
 
 @Component({
@@ -10,20 +10,20 @@ import { User } from 'src/app/shared/models/user';
 })
 export class MainComponent implements OnInit {
 
-  loggedUser!: User;
+  loggedUser: User | null;
   taskList = ['odkurzyć','odkurzyć','odkurzyć','odkurzyć'];
-  
-  constructor(private authService: AuthService, private router: Router) {
-    authService.currentUser.subscribe(user =>
-      this.loggedUser = user);
+
+  constructor(private tokenService: TokenstorageService, private router: Router) {
+      this.loggedUser = this.tokenService.getCurrentUser();
    }
 
    logOut() {
-     this.authService.logout();
+     this.tokenService.logout();
      this.router.navigate(['/logout']);
    }
 
   ngOnInit(): void {
+    console.log(this.tokenService.getToken())
   }
 
 }

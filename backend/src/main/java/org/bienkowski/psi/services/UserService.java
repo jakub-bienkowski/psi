@@ -1,5 +1,6 @@
 package org.bienkowski.psi.services;
 
+import org.bienkowski.psi.dto.CustomUserDetails;
 import org.bienkowski.psi.dto.UserDTO;
 import org.bienkowski.psi.enums.ERole;
 import org.bienkowski.psi.exception.UserAlreadyExistsException;
@@ -9,6 +10,7 @@ import org.bienkowski.psi.repository.RoleRepository;
 import org.bienkowski.psi.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,12 +46,14 @@ public class UserService {
         user.setRoles(getUserRole());
         userRepository.save(user);
         userDTO.setIdUsr(user.getId());
+        userDTO.setPassword("");
         return userDTO;
     }
 
     private Set<Role> getUserRole() {
         Set<Role> roles = new HashSet<>();
-        Optional<Role> userRole = roleRepository.findByName(ERole.USER_ROLE.name());
+        Optional<Role> userRole = roleRepository.findByName(ERole.USER_ROLE);
+        System.out.println(userRole);
         userRole.ifPresent(roles::add);
         return roles;
     }

@@ -8,7 +8,7 @@ import { LoggedOutComponent } from './components/public/logged-out/logged-out.co
 import { LoginComponent } from './components/public/login/login.component';
 import { RegistrationComponent } from './components/public/registration/registration.component';
 import { WelcomeComponent } from './components/public/welcome/welcome.component';
-import { AuthGuard } from './services/authguard/auth.guard';
+import { AuthGuard } from './services/authentication/auth.guard';
 import { MainComponent } from './components/home/main/main.component';
 
 const routes: Routes = [
