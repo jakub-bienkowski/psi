@@ -3,6 +3,7 @@
   "login.register": "Zarejestruj się",
   "login.name": "Imię",
   "login.surname": "Nazwisko",
+  "login.username" : "Nazwa użytkownika",
   "login.password": "Hasło",
   "login.enterPassword": "Wprowadź hasło",
   "login.confirmPassword": "Powtórz hasło",
