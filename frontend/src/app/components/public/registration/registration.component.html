@@ -30,7 +30,7 @@
              </div>
              <div class="form__field">
                 <label for="" class="form__label">{{ 'login.email' | translate }}</label>
-                 <input type="text" formControlName="email" class="form__input" autoComplete="username">
+                 <input type="text" formControlName="email" class="form__input" autoComplete="email">
                  <div class="form__validation">
                 <p class="form__validation--blank">&nbsp;</p>
                  <div class="invalid-form" *ngIf="registrationFormControl.email.touched && registrationFormControl.email.errors?.required">
@@ -41,6 +41,16 @@
                   </div>
                   </div>
              </div>
+             <div class="form__field">
+              <label for="" class="form__label">{{ 'login.username' | translate }}</label>
+               <input type="text" formControlName="username" class="form__input" autoComplete="username">
+               <div class="form__validation">
+              <p class="form__validation--blank">&nbsp;</p>
+               <div class="invalid-form" *ngIf="registrationFormControl.username.touched && registrationFormControl.username.errors?.required">
+                {{ 'form.fieldRequired' | translate }}
+              </div>
+                </div>
+           </div>
             <div class="form__field">
                 <label for="" class="form__label">{{ 'login.enterPassword' | translate}}</label>
                 <input type="password" formControlName="password" autocomplete="new-password" class="form__input">

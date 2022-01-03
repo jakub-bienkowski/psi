@@ -7,9 +7,8 @@ export const environment = {
 
   api: {
     serverhost: 'http://localhost:8085',
-    register: '/users/addUser',
-    login: '/users/login',
-    logout: '/auth/users/logout',
+    register: '/api/auth/addUser',
+    login: '/api/auth/login',
     tasks: '/auth/tasks'
   }
 
