@@ -10,7 +10,7 @@ import { User } from 'src/app/shared/models/user';
 })
 export class MainComponent implements OnInit {
 
-  loggedUser: User | null;
+  loggedUser: User;
   taskList = ['odkurzyć','odkurzyć','odkurzyć','odkurzyć'];
 
   constructor(private tokenService: TokenstorageService, private router: Router) {

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -46,6 +47,10 @@ public class User {
             joinColumns = @JoinColumn(name = "id_usr"),
             inverseJoinColumns = @JoinColumn(name = "id_rol"))
     private Set<Role> roles = new HashSet<>();
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @Cascade({org.hibernate.annotations.CascadeType.ALL})
+    private Set<Task> tasks;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

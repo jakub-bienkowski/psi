@@ -27,9 +27,9 @@ export class TokenstorageService {
     window.sessionStorage.setItem(Constants.USER_KEY, JSON.stringify(user));
   }
 
-  public getCurrentUser(): User | null {
+  public getCurrentUser(): User {
     let user = window.sessionStorage.getItem(Constants.USER_KEY);
-    return user ? JSON.parse(user) : null;
+    return JSON.parse(user!);
   }
 
 }

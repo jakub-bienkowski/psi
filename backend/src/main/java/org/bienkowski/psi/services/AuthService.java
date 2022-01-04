@@ -13,6 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -26,17 +27,20 @@ public class AuthService {
     @Autowired
     JwtUtils jwtUtils;
 
-    public UserDTO login(UserDTO loginFormData) {
+    public Optional<UserDTO> login(UserDTO loginFormData) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginFormData.getUsername(),
                         loginFormData.getPassword()));
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+        if (authentication == null) {
+            return Optional.empty();
+        }
 
+        SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtUtils.generateJwtToken(authentication);
         CustomUserDetails userDetails = ((CustomUserDetails) authentication.getPrincipal());
-        return buildUserDto(userDetails, token);
+        return Optional.of(buildUserDto(userDetails, token));
     }
 
     private UserDTO buildUserDto(CustomUserDetails userDetails, String token) {
@@ -54,14 +58,6 @@ public class AuthService {
                 token,
                 roles
         );
-    }
-
-    public boolean logOut(HttpServletRequest request) {
-        if (SecurityContextHolder.getContext().getAuthentication() != null) {
-            request.getSession().invalidate();
-            SecurityContextHolder.getContext().setAuthentication(null);
-        }
-        return true;
     }
 
 }

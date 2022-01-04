@@ -61,7 +61,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                  .and()
                  .authorizeRequests()
                  .antMatchers("/api/auth/**").permitAll()
-                 .antMatchers("/api/task/**").authenticated()
+                 .antMatchers("/api/tasks/**").authenticated()
                  .anyRequest().authenticated();
 
         http.addFilterBefore(jwtAuthTokenFilter(), UsernamePasswordAuthenticationFilter.class);

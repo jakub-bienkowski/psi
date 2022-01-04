@@ -1,3 +1,4 @@
+import { TokenstorageService } from './../../../../services/tokenstorage/tokenstorage.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Task } from './../../../../shared/models/task';
 import { Component, OnInit } from '@angular/core';
@@ -13,8 +14,7 @@ export class TodolistComponent implements OnInit {
   taskValue: string = '';
   taskList: Task[] = [];
 
-
-  constructor(private listService: ToDoListService) {
+  constructor(private listService: ToDoListService, private token: TokenstorageService) {
   }
 
   ngOnInit(): void {
@@ -28,7 +28,8 @@ export class TodolistComponent implements OnInit {
   }
 
   addTask() {
-    this.listService.saveTask(this.buildTask()).subscribe(task => {
+    let task = this.buildTask();
+    this.listService.saveTask(task).subscribe(task => {
       this.taskList.push(task);
     });
   }

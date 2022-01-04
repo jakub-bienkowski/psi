@@ -25,9 +25,7 @@ export class ToDoListService {
 
   saveTask(task: Task) {
     return this.http
-      .post<Task>(environment.api.serverhost + environment.api.tasks + '/add', {
-      task
-    })
+      .post<Task>(environment.api.serverhost + environment.api.tasks + '/add', task, this.httpOptions)
       .pipe(
          map((savedTask: Task) => {
          return savedTask;
