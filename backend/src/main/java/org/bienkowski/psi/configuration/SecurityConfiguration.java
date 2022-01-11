@@ -15,6 +15,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Collections;
 
 
 @Configuration
@@ -62,7 +67,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                  .authorizeRequests()
                  .antMatchers("/api/auth/**").permitAll()
                  .antMatchers("/api/task/**").authenticated()
-                 .anyRequest().authenticated();
+                 .anyRequest().authenticated()
+                 .and()
+                 .logout()
+                 .logoutUrl("/api/auth/logout");
 
         http.addFilterBefore(jwtAuthTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }

@@ -37,7 +37,7 @@ public class UserService {
     RoleRepository roleRepository;
 
     public UserDTO saveUser(UserDTO userDTO) throws UserAlreadyExistsException {
-        if (usernameExists(userDTO.getEmail())) {
+        if (userExists(userDTO)) {
             throw new UserAlreadyExistsException();
         }
         User user = modelMapper.map(userDTO, User.class);
@@ -50,16 +50,17 @@ public class UserService {
         return userDTO;
     }
 
+    private boolean userExists(UserDTO userDTO) {
+        Optional<User> usernameExists = userRepository.findByUsername(userDTO.getUsername());
+        Optional<User> emailExists = userRepository.findByEmail(userDTO.getEmail());
+        return usernameExists.isPresent() || emailExists.isPresent();
+    }
+
     private Set<Role> getUserRole() {
         Set<Role> roles = new HashSet<>();
         Optional<Role> userRole = roleRepository.findByName(ERole.USER_ROLE);
-        System.out.println(userRole);
         userRole.ifPresent(roles::add);
         return roles;
-    }
-
-    private boolean usernameExists(String username) {
-        return userRepository.findByUsername(username).isPresent();
     }
 
 }

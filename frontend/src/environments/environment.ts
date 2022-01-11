@@ -9,6 +9,7 @@ export const environment = {
     serverhost: 'http://localhost:8085',
     register: '/api/auth/addUser',
     login: '/api/auth/login',
+    logout: '/api/auth/logout',
   }
 
 };

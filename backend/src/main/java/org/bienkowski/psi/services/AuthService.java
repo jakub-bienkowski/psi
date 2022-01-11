@@ -11,9 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Slf4j
@@ -54,14 +52,6 @@ public class AuthService {
                 token,
                 roles
         );
-    }
-
-    public boolean logOut(HttpServletRequest request) {
-        if (SecurityContextHolder.getContext().getAuthentication() != null) {
-            request.getSession().invalidate();
-            SecurityContextHolder.getContext().setAuthentication(null);
-        }
-        return true;
     }
 
 }
