@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { User } from 'src/app/shared/models/user';
 import { environment } from 'src/environments/environment';
 
@@ -24,6 +25,10 @@ export class AuthService {
         username,
         password,
       }, this.httpOptions)
+  }
+
+  logout(): void {
+    this.http.post<any>(environment.api.serverhost + environment.api.logout, this.httpOptions);
   }
 
 }
