@@ -13,7 +13,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
-
 @Slf4j
 @Service
 public class AuthService {
@@ -25,6 +24,9 @@ public class AuthService {
     JwtUtils jwtUtils;
 
     public UserDTO login(UserDTO loginFormData) {
+        if (loginFormData == null) {
+            return null;
+        }
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginFormData.getUsername(),
